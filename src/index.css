@@ -1,0 +1,41 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body, html{
+  height: 100%;
+}
+
+body {
+  color: rgb(109, 174, 66);
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  font-family: Tahoma, "Lucida Grande CE", lucida, sans-serif;
+  scrollbar-shadow-color: rgb(109, 174, 66);
+  scrollbar-highlight-color: rgb(109, 174, 66);
+  scrollbar-3dlight-color: rgb(109, 174, 66);
+  scrollbar-base-color: black;
+  scrollbar-darkshadow-color: rgb(109, 174, 66);
+  scrollbar-track-color: black;
+  scrollbar-arrow-color: black;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+input {
+  padding: 0 3px;
+  color: white;
+  background-color: black;
+  vertical-align: middle;
+  height: 18px;
+  font-family: Tahoma, "Lucida Grande CE", lucida, sans-serif;
+  border: 1px solid rgb(109, 174, 66);
+  border-image: initial;
+}
