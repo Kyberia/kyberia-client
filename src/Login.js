@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Redirect from 'react-router/Redirect';
 
 export default class Login extends Component {
 
@@ -34,8 +35,13 @@ export default class Login extends Component {
   }
 
   render() {
+    const redirect = this.props.authorized && (
+      <Redirect to={this.props.location.state.from || '/'}/>
+    );
+
     return (
       <div style={{ display: 'flex', flexDirection: 'column' }}>
+        {redirect}
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
           <label htmlFor="login">user::</label>
           <input
@@ -85,4 +91,6 @@ export default class Login extends Component {
 
 Login.propTypes = {
   onLogin: PropTypes.func.isRequired,
+  authorized: PropTypes.shape({}),
+  location: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
 };
