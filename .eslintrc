@@ -4,9 +4,10 @@
     "browser": true,
     "jest": true
   },
+  "parser": "babel-eslint",
   "rules": {
-    "comma-dangle": "off",
     "import/no-named-as-default": "off",
+    "import/no-named-as-default-member": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-space-before-closing": ["error", "never"],
     "react/prefer-stateless-function": "warn"

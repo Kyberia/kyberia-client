@@ -12,7 +12,7 @@ const MatchWhenAuthorized = ({ component: Component, authorized, ...rest }) => (
         <Redirect
           to={{
             pathname: '/login',
-            state: { from: props.location }
+            state: { from: props.location },
           }}
         />
       )
@@ -24,7 +24,7 @@ const MatchWhenAuthorized = ({ component: Component, authorized, ...rest }) => (
 MatchWhenAuthorized.propTypes = {
   component: React.PropTypes.func,
   authorized: React.PropTypes.shape({}),
-  location: React.PropTypes.shape({})
+  location: React.PropTypes.shape({}),
 };
 
 export default MatchWhenAuthorized;

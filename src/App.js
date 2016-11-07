@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link, Match, Redirect } from 'react-router';
+import { autobind } from 'core-decorators';
 
 import { login, logout } from './redux/reducers/auth';
 import Login from './Login';
@@ -9,16 +10,12 @@ import './App.css';
 
 export class App extends Component {
 
-  constructor() {
-    super();
-    this.handleLoginB = this.handleLogin.bind(this);
-    this.handleLogoutB = this.handleLogout.bind(this);
-  }
-
+  @autobind
   handleLogin(username, password, usernameType) {
     this.props.login(username, password, usernameType);
   }
 
+  @autobind
   handleLogout() {
     this.props.logout();
   }
@@ -35,14 +32,14 @@ export class App extends Component {
             <li><Link to="/main">main</Link></li>
             <li><Link to="/mail">mail</Link></li>
             <li><Link to="/settings">settings</Link></li>
-            {this.props.user && <li><a href="/" onClick={this.handleLogoutB}>logout</a></li>}
+            {this.props.user && <li><a href="/" onClick={this.handleLogout}>logout</a></li>}
           </ul>
         </nav>
         <br/>
         <Match
           pattern="/login"
           component={
-            props => <Login authorized={this.props.user} onLogin={this.handleLoginB} {...props}/>
+            props => <Login authorized={this.props.user} onLogin={this.handleLogin} {...props}/>
           }
         />
         <MatchWhenAuthorized
@@ -69,7 +66,6 @@ export class App extends Component {
     );
   }
 }
-
 
 App.propTypes = {
   login: PropTypes.func.isRequired,
