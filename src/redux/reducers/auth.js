@@ -2,9 +2,10 @@
 import createReducer from '../createReducer';
 
 export const LOGIN_REQUESTED = 'LOGIN_REQUESTED';
-const LOGIN_RESOLVED = 'LOGIN_RESOLVED';
+export const LOGIN_RESOLVED = 'LOGIN_RESOLVED';
 const LOGIN_FAILED = 'LOGIN_FAILED'; // on auth error
 const LOGIN_ERROR = 'LOGIN_ERROR'; // on server error
+const LOGOUT_REQUESTED = 'LOGOUT_REQUESTED';
 
 const initialAuthState = {
   isLoggedIn: false,
@@ -29,11 +30,17 @@ const auth = createReducer({
     return Object.assign({}, state, {
       isLoggedIn: true,
       loginPending: false,
-      user: action.payload
+      user: action.payload,
     });
   },
   [LOGIN_ERROR]: clearLogin,
-  [LOGIN_FAILED]: clearLogin
+  [LOGIN_FAILED]: clearLogin,
+  [LOGIN_REQUESTED](state) {
+    return Object.assign({}, state, {
+      isLoggedIn: false,
+      user: undefined,
+    });
+  },
 }, initialAuthState);
 
 export default auth;
@@ -45,16 +52,20 @@ export const login = (username, password, usernameType) => ({
   payload: {
     username,
     password,
-    usernameType
-  }
+    usernameType,
+  },
 });
 
 export const loginResolved = payload => ({
   type: LOGIN_RESOLVED,
-  payload
+  payload,
 });
 
 export const loginError = payload => ({
   type: LOGIN_ERROR,
-  payload
+  payload,
+});
+
+export const logout = () => ({
+  type: LOGOUT_REQUESTED,
 });

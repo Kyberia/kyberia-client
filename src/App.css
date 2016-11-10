@@ -4,3 +4,14 @@
   align-content: center;
   justify-content: center;
 }
+
+
+.AppNavigation {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.AppNavigation li {
+  margin-right: 5px;
+}
