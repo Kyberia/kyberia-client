@@ -71,6 +71,11 @@
     "url": "git+https://github.com/vire/kyberia-client.git"
   },
   "jest": {
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/scripts/",
+      "<rootDir>/config/"
+    ],
     "moduleFileExtensions": [
       "jsx",
       "js",
