@@ -10,11 +10,11 @@ require('dotenv').config({silent: true});
 const jest = require('jest');
 const argv = process.argv.slice(2);
 
-// Watch unless on CI
-if (!process.env.CI) {
-  argv.push('--watch');
-} else {
+// Watch only if not on CI or in CONTAINER build
+if (process.env.CI || process.env.CONTAINER) {
   argv.push('--coverage');
+} else {
+  argv.push('--watch');
 }
 
 jest.run(argv);

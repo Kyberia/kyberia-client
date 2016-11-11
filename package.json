@@ -51,6 +51,7 @@
   "dependencies": {
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "core-decorators": "^0.14.0",
+    "pushstate-server": "^2.1.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
@@ -63,6 +64,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node scripts/start.js",
+    "start:prod": "pushstate-server ./build",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },

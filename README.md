@@ -11,3 +11,10 @@
 * run: `npm start`
 * build: `npm run build`
 * test: `npm test`
+
+
+### Docker
+
+* build container `docker build -t kyberia-client --build-arg REACT_APP_BACKEND_URL=http://example.com/ .`
+* run compiled app `docker run --rm -it -p 80:9000 kyberia-client`
+
